@@ -1,0 +1,582 @@
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+    /* es como un hack, se recomienda poner en la etiqueta HTML y de esa forma 1rem = 10px */
+}
+
+*,
+*:before,
+*::after {
+    box-sizing: inherit;
+}
+
+
+/** 
+* TODO -> Lo de arriba puede estar en todos mis proyectos 
+*/
+
+
+body {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.6rem;
+    /*es igual a 16 px*/
+    line-height: 2;
+}
+
+/** Globales **/
+h1,
+h2,
+h3 {
+    font-family: 'Playfair Display', serif;
+    margin: 0 0 2rem 0;
+}
+
+h1 {
+    font-size: 4rem;
+}
+
+@media (min-width: 768px) { 
+    h1{
+        font-size: 5rem;
+    }
+}
+
+h2 {
+    font-size: 3.2rem;
+}
+
+@media (min-width: 768px) { 
+    h2{
+        font-size: 4rem;   
+    }
+}
+
+h3 {
+    font-size: 2.4rem;
+}
+
+@media (min-width: 768px) { 
+    h3{
+        font-size: 3rem;
+    }
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+.contenedor {
+    /*1200px;*/
+    max-width: 120rem;
+    /*margin-top: 0;
+    margin-right: auto;
+    margin-bottom: 0;
+    margin-left: auto;*/
+    margin: 0 auto;
+}
+
+img {
+    max-width: 100%; /*Le estamos diciendo maximo 100% puede ser menos, si pusieramos solo width sera siempre el 100%*/
+    display: block;
+}
+
+.btn {
+    background-color: #8cbc00;
+    /*Toma todo el ancho disponible*/
+    display: block;
+    color: #fff;
+    text-transform: uppercase;
+    /*Grosor de la letra, nosotros podemos poner 900 porque descargamos un el tipo de letra y permite hasta 900*/
+    font-weight: 900;
+    padding: 1rem;
+    transition: background-color .3s ease-out;
+    text-align: center;
+    border: none;
+    width: 100%;
+}
+
+.btn:hover {
+    background-color: #769c02;
+    cursor: pointer;/*muestra el curso en manito al pasar por el boton*/
+}
+
+@media (min-width: 768px) { 
+    .btn{
+        width: auto;
+    }
+}
+
+/** Utilidades **/
+.text-center {
+    text-align: center;
+}
+
+@media (min-width: 768px) { 
+    .max-width-30{
+        max-width: 30rem;
+    }
+}
+
+
+/** Header y Nvegacion **/
+.nombre-sitio {
+    /*5rem = 50px*/
+    margin-top: 5rem;
+    text-align: center;
+}
+
+.nombre-sitio span {
+    color: #037bc0;
+}
+
+.contenedor-navegacion {
+    border-top: .1rem solid #e1e1e1;
+}
+
+.nav-principal {
+    /*border-color: #e1e1e1;
+    border-top-style: solid;
+    border-width: 1px;*/
+    padding: 2rem 0;
+    display: flex;
+    /*flex-direction: row; por default es row por eso se lo sacamos*/
+    flex-direction: column;
+    align-items: center;
+}
+
+@media (min-width: 768px) { 
+    .nav-principal{
+        justify-content: space-between;
+        flex-direction: row;    
+    }
+}
+
+.hero {
+    background-image: url(../img/principal.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    height: 25rem;
+}
+
+@media (min-width: 768px) { 
+    .hero{ 
+        height: 55rem;
+    }
+}
+
+/* Categorias */
+.categorias {
+    padding: 5rem 0;
+}
+
+.categoria {
+    margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) { 
+    .categoria{
+        margin-bottom: 0;
+    }
+}
+
+.categoria img{
+    width: 100%;
+}
+
+.categorias h2 {
+    text-align: center;
+}
+
+.categoria a {
+    text-align: center;
+    display: block;
+    padding: 2rem;
+    font-size: 2rem;
+}
+
+.categoria a:hover {
+    background-color: #037bc0;
+    color: #fff;
+    border-bottom-right-radius: 1rem;
+}
+
+@media (min-width: 768px) { 
+    .listado-categorias {
+        display: grid;
+        /*grid-template-columns: 200px 200px 200px 200px;*/
+        /*ES LO MISMO QUE LO DE ARRIBA SOLAMENTE CAMBIA QUE CON EL REPEAT LE INDICAMOS CUANTA VECES QUERES REPETIR EL TAMAÑO*/
+        /*grid-template-columns: repeat(4, 200px);*/
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
+        
+}
+
+/** Bloque Nosotros **/
+.sobre-nosotros {
+    /*background-image: linear-gradient(to right, white 50%, red 100%);*/
+    background-image: linear-gradient(to bottom, transparent 50%, #037bc0 50%, #037bc0 100%), url(../img/Nosotros.jpg);
+    background-position: center, top left;/*el center le aplica al color, en este caso va a comenzar el color desde el centro y el top left le indicamos para la imagen*/
+    background-repeat: no-repeat;
+    /*Tamaño de izq a der 100% para el linear gradient y 120rem para su img con eso le indicamos separando por comas*/
+    background-size: 100%, 70rem;
+}
+
+@media (min-width: 768px) { 
+    .sobre-nosotros {
+        /*background-image: linear-gradient(to right, white 50%, red 100%);*/
+        background-image: linear-gradient(to right, transparent 50%, #037bc0 50%, #037bc0 100%), url(../img/Nosotros.jpg);
+        background-position: left center;
+        padding: 10rem 0;
+        /*Tamaño de izq a der 100% para el linear gradient y 120rem para su img con eso le indicamos separando por comas*/
+        background-size: 100%, 160rem;
+    }
+}
+/*
+.sobre-nosotros-grid {
+    display: grid;
+    Nos crea un grid de 2 columnas que ambas miden lo mismo
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 8rem;
+}
+
+.texto-nosotros {
+    grid-column: 2 / 3;
+}
+*/
+
+/*TAMBIEN PODRIAMOS A VER UTILIZADO FLEXBOX DE ESTA MANERA PARA HACER EXACTAMENTE LO MISMO*/
+.sobre-nosotros-grid {
+   display: grid;
+   grid-template-rows: repeat(2, 1fr);
+}
+
+@media (min-width: 768px) { 
+    .sobre-nosotros-grid{
+        grid-template-columns: repeat(2,1fr);
+        grid-template-rows: unset;/*Elimina- valor de esta propiedad*/
+        column-gap: 10rem;
+    }
+}
+
+.texto-nosotros {
+    /*Ancho del elemento*/
+    grid-row: 2 / 3;
+    color: #fff;
+    padding: 5rem;
+}
+
+
+@media (min-width: 768px) { 
+    .texto-nosotros {
+        /*Ancho del elemento*/
+        grid-column: 2 / 3;
+    }
+    
+}
+/* Listado de productos */
+
+.contenido-principal {
+    padding-top: 5rem;
+}
+
+@media (min-width: 768px) { 
+    .listado-productos{
+        display: grid;
+        grid-template-columns: repeat(6,1fr);
+        /*column-gap: 2rem;
+        row-gap: 2rem;*/
+        gap: 2rem;
+    }
+    
+    .producto:nth-child(1){/*Seleccionamos el primer producto*/
+        /*grid-column: 1 / 7;*/
+        grid-column-start: 1;
+        grid-column-end: 7;
+        display: grid;
+        grid-template-columns: 3fr 1fr; /*Divide entre 4: la imagen va a tomar 3 de esas 4 partes y el resto 1*/
+    }
+    
+    .producto:nth-child(1) img {
+        height: 43rem;/*430 px*/
+        width: 100%;
+        object-fit: cover;
+    }
+    
+    .producto:nth-child(2){
+        grid-column-start: 1;
+        grid-column-end: 4;
+    }
+    
+    .producto:nth-child(2) img,
+    .producto:nth-child(3) img  {
+        height: 30rem;
+        width: 100%;
+        object-fit: cover;
+    }
+    
+    .producto:nth-child(3){
+        grid-column-start: 4;
+        grid-column-end: 7;
+    }
+    
+    .producto:nth-child(4){
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+    
+    .producto:nth-child(5){
+        grid-column-start: 3;
+        grid-column-end: 5;
+    }
+    
+    .producto:nth-child(6){
+        grid-column-start: 5;
+        grid-column-end: 7;
+    }
+}
+
+.producto {
+    background-color: #037bc0;
+    margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) { 
+    .producto{
+        margin-bottom: 0;
+    }
+}
+
+.producto:last-of-type{/*Le indicamos que solo modifique el ultimo contenido*/
+    margin-bottom: 0;
+}
+
+.texto-producto {
+    text-align: center;
+    color: #fff;
+    padding: 2rem;
+}
+
+.texto-producto h3 {
+    margin: 0;
+}
+
+.texto-producto p {
+    margin: 0 0 .5rem 0;
+}
+
+.texto-producto .precio {
+    font-size: 2.8rem;
+    font-weight: 900;
+}
+
+/** Footer **/
+
+.site-footer{
+    border-top: 1px solid #e1e1e1;
+    margin-top: 5rem;
+    padding: 5rem;
+}
+
+/*CON FLEX  
+.grid-footer{
+    display: flex;
+    gap: 2rem;
+
+}
+.grid-footer div{
+    flex: 1;/*factor de crecimiento que va a tener un div
+}*/
+
+/* CON GRID */
+
+.site-footer h3{
+    margin-bottom: .5rem;
+    text-align: center;
+}
+
+@media (min-width: 768px) { 
+    .site-footer h3{
+        text-align: left;
+    }
+    .grid-footer{
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        gap: 2rem;
+    }
+}
+
+.grid-footer > div{ /*selecionamos el primer nivel de div*/
+    margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) { 
+    .grid-footer > div{
+        margin-bottom: 0;
+    }
+}
+
+.footer-menu a {
+    display: block;
+    text-align: center;
+}
+
+@media (min-width: 768px) { 
+    .footer-menu a {
+        text-align: left;
+    }
+}
+
+.copyright{
+    margin-top: 5rem;
+    text-align: center;
+}
+
+/**  Nosotros **/
+
+.contenido-nosotros{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));/*Si se va bajo de los 25rem le aplico una fraccion*/
+    column-gap: 4rem;
+}
+
+.informacion-nosotros{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5rem;
+}
+
+@media (min-width: 768px) { 
+    .informacion-nosotros{
+        padding: 0;
+    }
+}
+
+/** Blog **/
+@media (min-width: 768px) { 
+    .contenedor-blog{
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        column-gap: 4rem;
+    }
+} 
+
+.entrada{
+    border-bottom: 2px solid #e1e1e1;
+    margin-bottom: 2rem;
+    padding-bottom: 4rem;
+}
+
+.entrada h2{
+    text-align: center;
+}
+
+@media (min-width: 768px) { 
+    .entrada h2{
+        text-align: left;
+    }
+}
+
+.contenido-blog{
+    padding: 2rem;
+}
+.entrada:last-of-type{
+    border: none;
+}
+
+@media (min-width: 768px) { 
+    .entrada-meta{
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.entrada-meta p{
+    font-weight: 700;/*ancho de la letra*/
+}
+.entrada-meta span{
+    color: #037bc0;
+}
+
+.contenido-entrada-blog{
+    width: 60rem;
+    margin: 0 auto;
+}
+
+/** Galeria **/
+
+.galeria{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);/*2 columnas para la galerias*/
+    gap: 2rem;
+}
+
+@media (min-width: 768px) { 
+    .galeria{
+        grid-template-columns: repeat(3,1fr);
+    }
+}
+
+.galeria img{
+    height: 40rem;
+    width: 40rem;
+    object-fit: cover;
+}
+
+/** Formulario **/
+
+.formulario{
+    max-width: 60rem;
+    margin: 0 auto;
+}
+
+.formulario fieldset{
+    border: 1px solid black;
+    margin-bottom: 2rem;
+}
+
+.formulario legend{
+    background-color: #005485;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 900;
+    padding: 1rem;
+    margin-bottom: 4rem;
+}
+
+.campo{
+    display: flex;
+    margin-bottom: 2rem;
+}
+
+.campo label{
+    flex-basis: 10rem;
+}
+
+/*
+.campo input[type="text"],
+.campo input[type="tel"],
+.campo input[type="email"],
+textarea
+{
+    flex: 1; /*toma el resto del espacio
+    border: 1px solid #e1e1e1;
+    padding: 1rem;
+}*/
+
+.campo input:not([type="radio"]),
+textarea,
+select{
+    flex: 1;
+    border: 1px solid #e1e1e1;
+    padding: 1rem;
+}
